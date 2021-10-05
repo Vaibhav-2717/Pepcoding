@@ -1,0 +1,36 @@
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+      int n = scn.nextInt();
+      int sourceBase = scn.nextInt();
+     int  destBase= scn.nextInt();
+     int decivalue = anybasetodecimal(n,sourceBase);
+     int convertvalue=decimaltoanybase(decivalue,destBase);
+     System.out.println(convertvalue);
+   }  
+   public static int anybasetodecimal(int n, int b){
+      // write your code here
+      int i=1,num=0;
+      while(n>0){
+          int dig=n%10;
+          n=n/10;
+          num += dig*i;
+           i=i*b;
+      }
+      return num;
+   }
+   public static int decimaltoanybase(int n, int d){
+      // write your code here
+      int p=1,num=0;
+      while(n>0){
+          int dig=n%d;
+           num += dig*p;
+           p *= 10;
+           n /=d;
+      }
+      return num;
+      }
+      }
